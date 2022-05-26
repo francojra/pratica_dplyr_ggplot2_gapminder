@@ -28,3 +28,12 @@ tab_1 <- tab %>%
             n = n(), se = sd / sqrt(n)) 
 tab_1
 view(tab_1)
+glimpse(tab_1)
+tab_1$ano <- as.factor(tab_1$ano)
+
+# Gráfico ----------------------------------------------------------------------------------------------------------------------------------
+
+ggplot(tab_1) +
+  geom_col(aes(x = ano, y = media, fill = continente, group = ano)) +
+  geom_errorbar(aes(x = ano, y = media, ymin = media - sd, ymax = media + sd)) 
+  
