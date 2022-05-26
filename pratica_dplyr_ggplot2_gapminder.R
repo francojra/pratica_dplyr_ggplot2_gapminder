@@ -22,4 +22,9 @@ view(tab)
 
 # Análises ---------------------------------------------------------------------------------------------------------------------------------
 
-
+tab_1 <- tab %>%
+  group_by(continente, ano) %>%
+  summarise(media = mean(expectativa_de_vida), sd = sd(expectativa_de_vida),
+            n = n(), se = sd / sqrt(n)) 
+tab_1
+view(tab_1)
