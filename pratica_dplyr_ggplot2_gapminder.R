@@ -35,8 +35,9 @@ tab_1$ano <- as.factor(tab_1$ano)
 
 ggplot(tab_1, aes(x = ano, y = media, fill = continente,
                   ymin = media - se, ymax = media + se)) +
-  geom_bar(stat = "identity", position = position_dodge2()) +
-  geom_errorbar(width = 0.6, colour = "brown", size = 1.3,
-                position = position_dodge2(.5)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(colour = "brown", size = 1,
+                stat = "identity", position = position_dodge(0.9),
+                width = 0.35) +
   scale_fill_manual(values = c("forestgreen", "purple"))
   
