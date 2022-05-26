@@ -33,11 +33,16 @@ tab_1$ano <- as.factor(tab_1$ano)
 
 # Gráfico ----------------------------------------------------------------------------------------------------------------------------------
 
-ggplot(tab_1, aes(x = ano, y = media, fill = continente,
+ggplot(tab_1, aes(x = ano, y = media, col = continente,
                   ymin = media - se, ymax = media + se)) +
-  geom_bar(stat = "identity", position = position_dodge()) +
-  geom_errorbar(colour = "brown", size = 1,
-                stat = "identity", position = position_dodge(0.9),
-                width = 0.35) +
-  scale_fill_manual(values = c("forestgreen", "purple"))
+  geom_point(stat = "identity", position = position_dodge(),
+             size = 3) +
+  geom_errorbar(colour = "brown", size = 0.8,
+                stat = "identity", position = position_dodge(),
+                width = 0.1, alpha = 0.6) +
+  scale_color_manual(values = c("forestgreen", "purple"),
+                     name = "Continente") +
+  coord_cartesian(ylim = c(50, 80)) +
+  theme_minimal(base_size = 12) +
+  labs(x = "Anos", y = "Expectativa de vida")
   
