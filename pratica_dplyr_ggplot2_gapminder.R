@@ -34,6 +34,9 @@ tab_1$ano <- as.factor(tab_1$ano)
 # Gráfico ----------------------------------------------------------------------------------------------------------------------------------
 
 ggplot(tab_1) +
-  geom_col(aes(x = ano, y = media, fill = continente, group = ano)) +
-  geom_errorbar(aes(x = ano, y = media, ymin = media - sd, ymax = media + sd)) 
+  geom_bar(aes(x = ano, y = media, fill = continente, group = ano),
+           stat = "identity", position = position_dodge2(width = 0.5)) +
+  geom_errorbar(aes(x = ano, y = media, ymin = media - sd, ymax = media + sd),
+                width = 0.4, colour = "brown", alpha = 0.9, size = 1.3,
+                position = position_dodge2(width = 0.5)) 
   
