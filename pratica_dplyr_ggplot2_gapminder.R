@@ -13,3 +13,13 @@ library(dados)
 tabela <- dados::dados_gapminder
 view(tabela)
 
+# Seleção de dados -------------------------------------------------------------------------------------------------------------------------
+
+tab <- tabela %>%
+  select(continente, ano, expectativa_de_vida) %>%
+  filter(continente %in% c("Américas", "Europa"))
+view(tab)
+
+# Análises ---------------------------------------------------------------------------------------------------------------------------------
+
+
